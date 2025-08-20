@@ -1,0 +1,15 @@
+---
+
+- hosts: all
+  become: true
+  become_method: dzdo
+  tasks:
+
+  - name: Update repository index
+    dnf:
+      update_cache: yes
+
+  - name: Install test package
+    dnf:
+      name: vim
+      state: absent
